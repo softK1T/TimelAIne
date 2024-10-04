@@ -56,38 +56,37 @@
   }
 }
 
-.timeline-container {
+.timeline {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  margin-top: 20px;
+  flex-direction: column; /* Stack rows vertically */
+  padding: 20px 0;
 }
 
-.timeline-line {
-  width: 2px; /* Width of the central line */
-  height: 100%;
-  background: #333; /* Line color */
-  position: absolute;
-  left: 50%; /* Center the line */
-  transform: translateX(-50%); /* Center adjustment */
+.timeline-row {
+  display: flex; /* Row layout */
+  justify-content: space-between; /* Space items evenly */
+  margin: 10px 0; /* Space between rows */
+}
+
+.timeline-row:nth-child(odd) {
+  flex-direction: row-reverse; /* Reverse the direction for odd rows */
 }
 
 .timeline-item {
-  display: flex;
-  justify-content: space-between; /* Space items evenly */
-  width: 80%; /* Width for compactness */
-  margin: 10px 0; /* Vertical space between items */
+  flex: 1; /* Grow to fill the row */
+  margin: 0 5px; /* Space between items */
 }
 
-.timeline-event {
-  display: flex;
-  align-items: center;
-  flex-grow: 1; /* Allows the event section to grow */
+.timeline-item-content {
+  background: var(--card-bg); /* Use your theme's card background color */
+  padding: 20px; /* Padding for the card */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: var(--shadow); /* Use your theme's shadow style */
+  transition: background-color 0.3s; /* Transition for hover effect */
+  text-align: center; /* Center text in the card */
 }
 
-.timeline-year {
-  margin-left: 10px; /* Space between the event and the year */
-  align-self: center; /* Center the year vertically */
+/* Optional: Add hover effect */
+.timeline-item-content:hover {
+  background: var(--hover-bg); /* Change to your hover color */
 }

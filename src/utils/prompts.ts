@@ -12,8 +12,8 @@ export interface Prompts {
 
 export function callPrompt(
   message: string,
-  realityType: "unreal" | "real" | "unreal", // Type for realityType
-  brutalityType: "brutal" | "light" | "sfw" | "most_brutal" | "brutal", // Type for brutalityType
+  realityType: string, // Type for realityType
+  brutalityType: string, // Type for brutalityType
   type: PromptType = "default"
 ): string {
   const reality: Record<string, string> = {
