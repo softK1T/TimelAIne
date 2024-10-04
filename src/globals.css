@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  .light {
+    --background: 287 100% 95%;
+    --foreground: 287 5% 10%;
+    --card: 287 50% 90%;
+    --card-foreground: 287 5% 15%;
+    --popover: 287 100% 95%;
+    --popover-foreground: 287 100% 10%;
+    --primary: 287 52% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 287 30% 70%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 249 30% 85%;
+    --muted-foreground: 287 5% 40%;
+    --accent: 249 30% 80%;
+    --accent-foreground: 287 5% 15%;
+    --destructive: 0 100% 42%;
+    --destructive-foreground: 287 5% 90%;
+    --border: 287 30% 50%;
+    --input: 287 30% 42%;
+    --ring: 287 52% 56%;
+    --radius: 0.3rem;
+  }
+  :root {
+    --background: 287 50% 10%;
+    --foreground: 287 5% 90%;
+    --card: 287 50% 10%;
+    --card-foreground: 287 5% 90%;
+    --popover: 287 50% 5%;
+    --popover-foreground: 287 5% 90%;
+    --primary: 287 52% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 287 30% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 249 30% 25%;
+    --muted-foreground: 287 5% 60%;
+    --accent: 249 30% 25%;
+    --accent-foreground: 287 5% 90%;
+    --destructive: 0 100% 42%;
+    --destructive-foreground: 287 5% 90%;
+    --border: 287 30% 42%;
+    --input: 287 30% 42%;
+    --ring: 287 52% 56%;
+    --radius: 0.3rem;
+  }
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.timeline-line {
+  width: 2px; /* Width of the central line */
+  height: 100%;
+  background: #333; /* Line color */
+  position: absolute;
+  left: 50%; /* Center the line */
+  transform: translateX(-50%); /* Center adjustment */
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between; /* Space items evenly */
+  width: 80%; /* Width for compactness */
+  margin: 10px 0; /* Vertical space between items */
+}
+
+.timeline-event {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allows the event section to grow */
+}
+
+.timeline-year {
+  margin-left: 10px; /* Space between the event and the year */
+  align-self: center; /* Center the year vertically */
+}
