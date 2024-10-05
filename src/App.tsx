@@ -1,49 +1,40 @@
 import { useState } from "react";
+import { Event } from "@/utils/prompts";
 import { formatDate } from "@/utils/dateFormatter";
 import "./globals.css";
 import { Timeline } from "@/components/Timeline/Timeline";
 import { Form } from "@/components/Form/Form";
-import { handleStartOrContinue } from "@/utils/timelineUtils"; // Import the new utility functions
-import { Event } from "@/utils/prompts";
+import { startOrContinue } from "@/utils/timelineUtils";
+import { useOptions } from "@/hooks/useOptions"; // Import your custom hook
 
 function App() {
-  const [message, setMessage] = useState("");
   const [response, setResponse] = useState<Event[]>([]);
-  const [reality, setReality] = useState("");
-  const [brutality, setBrutality] = useState("");
+  const [message, setMessage] = useState<string>("");
 
-  async function startOrContinue(continueStory: boolean = false) {
-    await handleStartOrContinue(
-      continueStory,
-      message,
-      response,
-      brutality,
-      reality,
-      setResponse
-    );
-  }
+  const { options, handleOptionChange } = useOptions(); // Use the custom hook
+
+  const handleStartOrContinue = (continueStory: boolean) =>
+    startOrContinue(continueStory, message, options, response, setResponse);
 
   return (
     <div className="bg-background text-foreground">
-      <div className="m-10">
+      <div className="m-10 flex flex-col items-center">
         <h1 className="text-6xl">TimelAIne</h1>
         <p className="text-2xl">Create your own history</p>
       </div>
-      <div className="border border-border items-center flex flex-col p-5 bg-card">
+      <div className="items-center flex flex-col p-5 bg-card">
         <Form
           message={message}
           setMessage={setMessage}
-          reality={reality}
-          setReality={setReality}
-          brutality={brutality}
-          setBrutality={setBrutality}
-          handleStartOrContinue={startOrContinue} // Update this line
+          options={options}
+          handleOptionChange={handleOptionChange}
+          handleStartOrContinue={handleStartOrContinue}
         />
         {response.length > 0 && (
           <Timeline
             response={response}
             formatDate={formatDate}
-            onContinue={() => startOrContinue(true)} // Update this line
+            onContinue={() => handleStartOrContinue(true)}
           />
         )}
       </div>

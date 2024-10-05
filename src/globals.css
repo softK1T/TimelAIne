@@ -59,34 +59,31 @@
 .timeline {
   display: flex;
   flex-direction: column; /* Stack rows vertically */
-  padding: 20px 0;
+  padding: 10px 0; /* Reduced padding */
 }
 
 .timeline-row {
-  display: flex; /* Row layout */
-  justify-content: space-between; /* Space items evenly */
-  margin: 10px 0; /* Space between rows */
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 5px; /* Space between items */
+  margin: 5px 0; /* Reduced margin between rows */
 }
 
 .timeline-row:nth-child(odd) {
   flex-direction: row-reverse; /* Reverse the direction for odd rows */
 }
 
-.timeline-item {
-  flex: 1; /* Grow to fill the row */
-  margin: 0 5px; /* Space between items */
-}
-
 .timeline-item-content {
   background: var(--card-bg); /* Use your theme's card background color */
-  padding: 20px; /* Padding for the card */
-  border-radius: 10px; /* Rounded corners */
+  padding: 10px; /* Reduced padding */
+  border-radius: 8px; /* Slightly smaller corners */
   box-shadow: var(--shadow); /* Use your theme's shadow style */
   transition: background-color 0.3s; /* Transition for hover effect */
   text-align: center; /* Center text in the card */
+  font-size: 0.9em; /* Slightly smaller font size */
 }
 
 /* Optional: Add hover effect */
-.timeline-item-content:hover {
-  background: var(--hover-bg); /* Change to your hover color */
+.timeline-item:hover {
+  background: var(--popover); /* Change to your hover color */
 }
