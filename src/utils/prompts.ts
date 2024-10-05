@@ -4,6 +4,8 @@ export interface Event {
   emj: string; // Emoji representation
   dt: string; // Date of the event
   evt: string; // Description of the event
+  dtl: string;
+  pop: string;
 }
 
 export interface Prompts {

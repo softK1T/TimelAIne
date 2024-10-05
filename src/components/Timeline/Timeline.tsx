@@ -1,12 +1,4 @@
-// import {
-//   Card,
-//   CardHeader,
-//   CardTitle,
-//   CardDescription,
-//   CardContent,
-//   CardFooter,
-// } from "../ui/card";
-
+import { Event } from "@/utils/prompts";
 import {
   Card,
   CardHeader,
@@ -17,17 +9,25 @@ import {
 } from "../myCard";
 import { Button } from "../ui/button";
 
-export const Timeline = ({ response, formatDate, onContinue }) => {
+type TimelineProps = {
+  response: Event[];
+  formatDate: (dateString: string) => string;
+  onContinue: () => void;
+};
+
+export const Timeline = ({
+  response,
+  formatDate,
+  onContinue,
+}: TimelineProps) => {
   return (
     <div>
       {response.map((event, index) => (
         <div className="timeline-item" key={index}>
           <Card>
             <CardHeader className="text-2xl">
-              <CardTitle>{event.emj}</CardTitle>{" "}
-              <CardDescription className="">
-                {event.dtl ? event.evt : ""}
-              </CardDescription>
+              <CardTitle>{event.emj}</CardTitle>
+              <CardDescription>{event.dtl ? event.evt : ""}</CardDescription>
               <CardFooter>
                 <p>{formatDate(event.dt)}</p>
               </CardFooter>
