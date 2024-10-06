@@ -2,8 +2,8 @@ import { Event } from "@/utils/prompts";
 import {
   Card,
   CardHeader,
+  CardEmoji,
   CardTitle,
-  CardDescription,
   CardContent,
   CardFooter,
 } from "../myCard";
@@ -21,13 +21,13 @@ export const Timeline = ({
   onContinue,
 }: TimelineProps) => {
   return (
-    <div>
+    <div className="flex-col sm:gap-1.5 gap-0.5 flex ">
       {response.map((event, index) => (
         <div className="timeline-item" key={index}>
           <Card>
-            <CardHeader className="text-2xl">
-              <CardTitle>{event.emj}</CardTitle>
-              <CardDescription>{event.dtl ? event.evt : ""}</CardDescription>
+            <CardHeader className="sm:text-xl text-m">
+              <CardEmoji>{event.emj}</CardEmoji>
+              <CardTitle>{event.dtl ? event.evt : ""}</CardTitle>
               <CardFooter>
                 <p>{formatDate(event.dt)}</p>
               </CardFooter>
@@ -36,14 +36,16 @@ export const Timeline = ({
               </CardFooter>
             </CardHeader>
             <CardContent>
-              <p className="text-xl">{event.dtl ? event.dtl : event.evt}</p>
+              <p className="sm:text-xl text-m">
+                {event.dtl ? event.dtl : event.evt}
+              </p>
             </CardContent>
           </Card>
         </div>
       ))}
       <Button
         onClick={onContinue}
-        className="w-max-200 self-center my-2 rounded-xl"
+        className="sm:w-[200px] self-center my-2 rounded-xl"
       >
         Continue the story...
       </Button>
