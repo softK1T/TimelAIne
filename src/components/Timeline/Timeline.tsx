@@ -8,7 +8,6 @@ import {
   CardDate,
 } from "../myCard";
 import { Button } from "../ui/button";
-import { Separator } from "../ui/separator";
 
 type TimelineProps = {
   response: Event[];
@@ -22,7 +21,7 @@ export const Timeline = ({
   onContinue,
 }: TimelineProps) => {
   return (
-    <div className="flex-col sm:gap-1.5 gap-0.5 flex ">
+    <div className="flex-col w-full sm:w-auto sm:gap-1.5 gap-0.5 flex ">
       {response.map((event, index) => (
         <div className="timeline-item" key={index}>
           <Card>
@@ -38,12 +37,9 @@ export const Timeline = ({
             </CardHeader>
 
             {event.dtl && (
-              <>
-                <Separator orientation="vertical" />
-                <CardContent>
-                  <p className="sm:text-xl text-m">{event.dtl}</p>
-                </CardContent>
-              </>
+              <CardContent>
+                <p className="sm:text-xl text-m">{event.dtl}</p>
+              </CardContent>
             )}
           </Card>
         </div>

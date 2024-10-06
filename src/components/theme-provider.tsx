@@ -51,6 +51,7 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
+      console.log("Setting theme to:", theme);
       localStorage.setItem(storageKey, theme);
       setTheme(theme);
     },
@@ -63,7 +64,6 @@ export function ThemeProvider({
   );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
 

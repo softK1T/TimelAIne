@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-  .light {
+  :root {
     --background: 287 100% 95%;
     --foreground: 287 5% 10%;
     --card: 287 50% 90%;
@@ -24,7 +24,8 @@
     --ring: 287 52% 56%;
     --radius: 0.3rem;
   }
-  :root {
+
+  :root.dark {
     --background: 287 50% 10%;
     --foreground: 287 5% 90%;
     --card: 287 50% 10%;
@@ -47,6 +48,7 @@
     --radius: 0.3rem;
   }
 }
+
 @layer base {
   * {
     @apply border-border;

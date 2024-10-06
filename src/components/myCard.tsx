@@ -23,7 +23,7 @@ const CardHeader = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex flex-row min-w-[220px] max-w-[220px] sm:flex-col gap-1 items-center sm:items-start px-0 mb-2 mt-0.5",
+      "flex flex-row md:min-w-[220px] md:max-w-[220px] w-full sm:flex-col gap-1 items-center sm:items-start px-0 mb-2 mt-0.5",
       className
     )}
     {...props}
@@ -47,7 +47,7 @@ const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn("w-full", className)} {...props} />
+  <p ref={ref} className={cn("w-fit", className)} {...props} />
 ));
 CardTitle.displayName = "CardDescription";
 
