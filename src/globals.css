@@ -55,35 +55,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.timeline {
-  display: flex;
-  flex-direction: column; /* Stack rows vertically */
-  padding: 10px 0; /* Reduced padding */
-}
-
-.timeline-row {
-  display: grid; /* Use grid layout */
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 5px; /* Space between items */
-  margin: 5px 0; /* Reduced margin between rows */
-}
-
-.timeline-row:nth-child(odd) {
-  flex-direction: row-reverse; /* Reverse the direction for odd rows */
-}
-
-.timeline-item-content {
-  background: var(--card-bg); /* Use your theme's card background color */
-  padding: 10px; /* Reduced padding */
-  border-radius: 8px; /* Slightly smaller corners */
-  box-shadow: var(--shadow); /* Use your theme's shadow style */
-  transition: background-color 0.3s; /* Transition for hover effect */
-  text-align: center; /* Center text in the card */
-  font-size: 0.9em; /* Slightly smaller font size */
-}
-
-/* Optional: Add hover effect */
-.timeline-item:hover {
-  background: var(--popover); /* Change to your hover color */
-}

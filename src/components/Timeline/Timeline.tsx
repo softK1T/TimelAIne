@@ -8,6 +8,7 @@ import {
   CardDate,
 } from "../myCard";
 import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 
 type TimelineProps = {
   response: Event[];
@@ -35,10 +36,14 @@ export const Timeline = ({
                 {event.pop && <p>Human population: ~{event.pop}</p>}
               </CardDate>
             </CardHeader>
+
             {event.dtl && (
-              <CardContent>
-                <p className="sm:text-xl text-m">{event.dtl}</p>
-              </CardContent>
+              <>
+                <Separator orientation="vertical" />
+                <CardContent>
+                  <p className="sm:text-xl text-m">{event.dtl}</p>
+                </CardContent>
+              </>
             )}
           </Card>
         </div>

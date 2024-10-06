@@ -23,7 +23,7 @@ const CardHeader = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex flex-row sm:flex-col sm:w-[350px] gap-1 items-center sm:items-start px-0 sm:x-2 mb-2 mt-0.5",
+      "flex flex-row min-w-[220px] max-w-[220px] sm:flex-col gap-1 items-center sm:items-start px-0 mb-2 mt-0.5",
       className
     )}
     {...props}
