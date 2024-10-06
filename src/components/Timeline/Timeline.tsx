@@ -5,7 +5,7 @@ import {
   CardEmoji,
   CardTitle,
   CardContent,
-  CardFooter,
+  CardDate,
 } from "../myCard";
 import { Button } from "../ui/button";
 
@@ -27,19 +27,19 @@ export const Timeline = ({
           <Card>
             <CardHeader className="sm:text-xl text-m">
               <CardEmoji>{event.emj}</CardEmoji>
-              <CardTitle>{event.dtl ? event.evt : ""}</CardTitle>
-              <CardFooter>
+              <CardTitle>{event.evt}</CardTitle>
+              <CardDate>
                 <p>{formatDate(event.dt)}</p>
-              </CardFooter>
-              <CardFooter>
+              </CardDate>
+              <CardDate>
                 {event.pop && <p>Human population: ~{event.pop}</p>}
-              </CardFooter>
+              </CardDate>
             </CardHeader>
-            <CardContent>
-              <p className="sm:text-xl text-m">
-                {event.dtl ? event.dtl : event.evt}
-              </p>
-            </CardContent>
+            {event.dtl && (
+              <CardContent>
+                <p className="sm:text-xl text-m">{event.dtl}</p>
+              </CardContent>
+            )}
           </Card>
         </div>
       ))}
