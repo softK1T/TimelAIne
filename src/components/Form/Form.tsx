@@ -29,17 +29,17 @@ export function Form({
     <>
       <p className="pb-2 text-xl">What happened?</p>
       <Textarea
-        className="w-1/2 text-lg items-center mb-2 border border-border rounded-2xl p-2"
+        className="w-full lg:w-1/2 text-lg m-auto items-center mb-2 border border-border rounded-2xl p-2"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Start your story..."
       />
-      <div className="flex gap-2 my-2">
+      <div className=" flex flex-col gap-2 my-2 w-full lg:w-1/2">
         <Select
           value={options.reality as string}
           onValueChange={(val) => handleOptionChange("reality", val)}
         >
-          <SelectTrigger className="w-max-400px text-md">
+          <SelectTrigger className="w-max-100px text-md">
             <SelectValue placeholder="Select Reality Level" />
           </SelectTrigger>
           <SelectContent>

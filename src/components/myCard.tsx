@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
@@ -9,7 +8,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex max-w-6xl lg:flex-row p-6 rounded-xl border bg-card text-card-foreground shadow",
+      "flex flex-col md:flex-row max-w-6xl p-6 rounded-xl border bg-card text-card-foreground shadow",
       className
     )}
     {...props}
@@ -23,7 +22,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col  lg:w-1/2", className)}
+    className={cn("flex flex-col w-full md:w-1/2", className)}
     {...props}
   />
 ));
@@ -58,10 +57,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "text-sm p-2 pt-0 mt-6 flex w-full flex-col space-y-2 px-12 lg:mt-0 lg:w-1/2",
-      className
-    )}
+    className={cn("text-sm p-2 pt-0 mt-6 flex flex-col space-y-2", className)}
     {...props}
   />
 ));
